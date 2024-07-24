@@ -1,0 +1,15 @@
+.productList {
+    height: 50px;
+    width: auto;
+    /* background-color: green; */
+    display: inline-block;
+    
+}
+.productList p {
+    justify-content: center;
+    background-color: aqua;
+    border: 2px black solid;
+    border-radius: 2px;
+    margin: 5px;
+    height: 250px;
+}
