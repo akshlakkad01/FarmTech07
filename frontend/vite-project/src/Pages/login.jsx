@@ -1,27 +1,41 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , Navigate} from 'react-router-dom';
+import ProductShow from './productShow';
 import './login.css';
 
  export default function Login() {
+    // const [isSignup , setisSingup] = useState(false);
     const [username , setUsername] = useState("");
     const [email , setEmail] = useState("");
     const [password  , setPass] = useState("");
-
+    
+    const navigate = useNavigate();
 
     const getData=async(e)=>
     {
         e.preventDefault();
+        
         const data = {
             username:username,
             email:email,
             password:password
         }
-        const res = await axios.post("http://localhost:8080/login",data)
-        .catch((err)=>console.log(err));
+        console.log(data.email);
+        if(data.username == "" || data.email == "" || data.password== "")
+        {
+            alert("you can't singup in the website")
+        }
+        else{
+            alert("added my friend");
+            navigate("/")
+            const res = await axios.post("http://localhost:8080/login",data)
+            .catch((err)=>console.log(err));
+            console.log("done");
 
-        alert("added my friend");
-        
+            
+        }
+       
     }
     function showPass() {
         let password = document.getElementById("password");

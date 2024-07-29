@@ -1,5 +1,5 @@
 
-// import Login from './Pages/login.jsx'
+ import Login from './Pages/login.jsx'
 
 import { Routes ,Route, BrowserRouter } from "react-router-dom";
 import ProductShow from './Pages/productShow.jsx'
@@ -19,6 +19,7 @@ function App() {
       <BrowserRouter>
       <Layout />
       <Routes>
+        <Route path="/singup" element={<Login />}/>
         <Route path="/" element={<Index />} />
         <Route path="/showProduct" element={<ProductShow/>} />
         <Route path="/addProduct" element={<AddProduct />} />
