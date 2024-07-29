@@ -123,6 +123,7 @@ app.post("/login",async(req,res)=>
   console.log("user detail has been successfuly added");
 })
 
+
 app.listen(port,()=>
 {
     console.log(`port is listing in ${port}`);
