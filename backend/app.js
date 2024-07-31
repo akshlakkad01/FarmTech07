@@ -14,6 +14,7 @@ const bodyparser = require('body-parser');
 const { name } = require('ejs');
 const jwt=require("jsonwebtoken");
 
+
 const cookieParser = require("cookie-parser");
 
 app.use(cookieParser());
@@ -21,7 +22,7 @@ app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 app.engine("ejs",ejsMate);
 app.use(express.urlencoded({extended : true}));
-app.use(cors());
+app.use(cors({origin: "http://localhost:5173", credentials:true}));
 app.use(bodyparser.json());
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/agri";
@@ -48,7 +49,7 @@ async function main() {
 
 app.get("/",(req,res)=>
 {
-    res.send("welcome to website")
+    // res.send("welcome to website")
     res.cookie('cookie','krish',{ maxAge: 900000, httpOnly: true });
    res.send("cookie has been saved")
 })
@@ -131,8 +132,7 @@ app.post("/login",async(req,res)=>
   console.log("user detail has been successfuly added");
    token = jwt.sign({_id:this._id},"mysecret");
    res.cookie('cookie',token);
-   
-   console.log(token);
+   res.status(201).send({data: "AAvi gya ho"});
 })
 
 
