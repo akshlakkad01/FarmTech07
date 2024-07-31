@@ -8,11 +8,15 @@ const User = require("./models/user.js")
 const ejsMate = require("ejs-mate");
 const path = require("path");
 const data = require("./init/data.js");
-const { render } = require('express/lib/response.js');
+const { render, cookie } = require('express/lib/response.js');
 const cors = require('cors');
 const bodyparser = require('body-parser');
 const { name } = require('ejs');
+const jwt=require("jsonwebtoken");
 
+const cookieParser = require("cookie-parser");
+
+app.use(cookieParser());
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 app.engine("ejs",ejsMate);
@@ -45,6 +49,8 @@ async function main() {
 app.get("/",(req,res)=>
 {
     res.send("welcome to website")
+    res.cookie('cookie','krish',{ maxAge: 900000, httpOnly: true });
+   res.send("cookie has been saved")
 })
 
 //show items
@@ -114,13 +120,19 @@ app.get("/showCart",async(req,res)=>
 //login data
 app.post("/login",async(req,res)=>
 {
+  let token;
   const data={
     name:req.body.username,
     email:req.body.email,
     password:req.body.password
   }
   await User.insertMany(data);
+  const userSingup=User.findOne({email:data.email});
   console.log("user detail has been successfuly added");
+   token = jwt.sign({_id:this._id},"mysecret");
+   res.cookie('cookie',token);
+   
+   console.log(token);
 })
 
 
