@@ -54,7 +54,7 @@ import './login.css';
     }
     return (
         <div className="login-container">
-        <h1>Signup</h1>
+        <h1>Sign Up</h1>
         <form id="loginForm">
             <div className="input-group">
                 <label htmlFor="username">Username</label>
