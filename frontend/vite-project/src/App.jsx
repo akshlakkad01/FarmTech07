@@ -1,6 +1,6 @@
 
  import Login from './Pages/login.jsx'
-
+import axios from 'axios';
 import { Routes ,Route, BrowserRouter } from "react-router-dom";
 import ProductShow from './Pages/productShow.jsx'
 import AddProduct from './Pages/addProduct.jsx'
@@ -12,7 +12,7 @@ import Index from './Pages/index.jsx'
 
 
 function App() {
-
+  axios.defaults.withCredentials = true;
   return (
   
     <>

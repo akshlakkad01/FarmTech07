@@ -27,9 +27,12 @@ import './login.css';
             alert("you can't singup in the website")
         }
         else{
-            alert("added my friend");
             navigate("/")
+            console.log("THAyu ho");
             const res = await axios.post("http://localhost:8080/login",data)
+            .then((res) => {
+                console.log(res.data);
+            })
             .catch((err)=>console.log(err));
             console.log("done");
 
