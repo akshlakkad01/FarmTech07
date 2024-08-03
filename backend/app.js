@@ -114,7 +114,6 @@ app.post("/addCart",async(req,res)=>
 app.get("/showCart",async(req,res)=>
 {
   const item = await Cart.find();
-  console.log("data sent");
   res.send(item);
 })
 
@@ -131,6 +130,7 @@ app.post("/login",async(req,res)=>
   const userSingup=User.findOne({email:data.email});
   console.log("user detail has been successfuly added");
    token = jwt.sign({_id:this._id},"mysecret");
+   console.log(token);
    res.cookie('cookie',token);
    res.status(201).send({data: "AAvi gya ho"});
 })
