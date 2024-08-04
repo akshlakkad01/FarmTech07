@@ -14,7 +14,7 @@ const bodyparser = require('body-parser');
 const { name } = require('ejs');
 const jwt=require("jsonwebtoken");
 
-const cookieParser = require("cookie-parser");
+const cookieParser = require('cookie-parser');
 
 app.use(cookieParser());
 app.set("view engine","ejs");
@@ -48,7 +48,7 @@ async function main() {
 
 app.get("/",(req,res)=>
 {
-    res.send("welcome to website")
+    
     res.cookie('cookie','krish',{ maxAge: 900000, httpOnly: true });
    res.send("cookie has been saved")
 })
@@ -113,8 +113,15 @@ app.post("/addCart",async(req,res)=>
 app.get("/showCart",async(req,res)=>
 {
   const item = await Cart.find();
-  console.log("data sent");
-  res.send(item);
+  if(item == null)
+  {
+    res.send("your cart is empty");
+  }
+  else {
+    console.log("data sent");
+    res.send(item);
+  }
+  
 })
 
 //login data
@@ -130,7 +137,7 @@ app.post("/login",async(req,res)=>
   const userSingup=User.findOne({email:data.email});
   console.log("user detail has been successfuly added");
    token = jwt.sign({_id:this._id},"mysecret");
-   res.cookie('cookie',token);
+   res.cookie('cookie',token,{ httpOnly: true });
    
    console.log(token);
 })

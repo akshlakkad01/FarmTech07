@@ -42,7 +42,8 @@ export default function ProductShow() {
     
         return(
             <>
-            <Navigate to="/singup" />
+             <Navigate to="/singup" />
+           
           
             <h1>All Products</h1>
             {
