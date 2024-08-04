@@ -36,7 +36,7 @@ export default function ProductShow() {
     useEffect(()=>
     {
       if (!document.cookie) {
-          navigate("/singup");
+          navigate("/signup");
       }
        axios
        .get("http://localhost:8080/showPro")

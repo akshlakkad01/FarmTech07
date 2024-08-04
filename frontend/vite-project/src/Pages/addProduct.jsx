@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import "./addProduct.css";
 
 export default function AddProduct() {
@@ -18,20 +18,21 @@ export default function AddProduct() {
             product_category: category,
             product_price: +price
         };
-
-        try {
-            const res = await axios.post("http://localhost:8080/add", data);
-            console.log(res.data);
-            setID(0);
-            setName("");
-            setCategory("");
-            setPrice(0);
-            navigate("/");
-        } catch (err) {
-            console.error("Error saving the product:", err);
-        }
+            try {
+                const res = await axios.post("http://localhost:8080/add", data);
+                console.log(res.data);
+                setID(0);
+                setName("");
+                setCategory("");
+                setPrice(0);
+                navigate("/");
+            } catch (err) {
+                console.error("Error saving the product:", err);
+            }
     };
-
+if (!document.cookie) {
+    return <Navigate to="/signup" />;
+}
     return (
         <div className="addProduct">
             <form className="addpro" onSubmit={handleSave}>

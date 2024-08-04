@@ -8,6 +8,7 @@ import ShowCart from './Pages/showCart.jsx'
 import Layout from './Pages/layout.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Index from './Pages/index.jsx'
+import Signup from './Pages/signup.jsx';
 
 
 
@@ -19,7 +20,8 @@ function App() {
       <BrowserRouter>
       <Layout />
       <Routes>
-        <Route path="/singup" element={<Login />}/>
+        <Route path='/login' element={<Login />} />
+        <Route path="/signup" element={<Signup />}/>
         <Route path="/" element={<Index />} />
         <Route path="/showProduct" element={<ProductShow/>} />
         <Route path="/addProduct" element={<AddProduct />} />
