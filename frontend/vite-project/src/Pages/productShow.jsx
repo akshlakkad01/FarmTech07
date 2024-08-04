@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
+import {Cookies, useCookies} from 'react-cookie';
 import axios from "axios";
 import './productShow.css';
 import { v4 as uuidv4 } from 'uuid';
 
 export default function ProductShow() {
     
-    const [isSignup , setisSingup] = useState(false);
     const [myData , setData] = useState([]);
+    const navigate = useNavigate();
     
-    
+
     const addInCart = async(item)=>
     {
         alert("product added in the cart")
@@ -34,40 +35,50 @@ export default function ProductShow() {
 
     useEffect(()=>
     {
+      if (!document.cookie) {
+          navigate("/signup");
+      }
        axios
        .get("http://localhost:8080/showPro")
        .then((res)=>setData(res.data))
     },[])
 
-    
+    const cookie = document.cookie;
+    console.log(cookie);
         return(
             <>
+<<<<<<< HEAD
              <Navigate to="/singup" />
            
           
             <h1>All Products</h1>
             {
                 myData.map((item)=>
+=======
+              <h1>All Products</h1>
+>>>>>>> 2794f1c1de8039fcb85f387c162cfaf61de87b09
                 {
-                    const {id,name,category,price,image} = item;
-                    
-                    return (
-                        <>
-                        <div className="productList" >
-                         <p key={id}>
-                          id :- {id} <br></br>
-                          Name :-  {name} <br></br>
-                          Category :-   {category} <br></br>
-                          Price :-  {price}/kg <br></br>
-                          {/* <button onClick={()=>deleteData(id)} >Delete</button> */}
-                          <button onClick={()=>addInCart(item)}>Buy</button>
-                        </p>
+                    myData.map((item)=>
+                    {
+                        const {id,name,category,price,image} = item;
                         
-                         </div>
-                        </>
-                    )
-                })
-            }
-            </>
-        )
+                        return (
+                            <>
+                            <div className="productList" >
+                             <p key={id}>
+                              id :- {id} <br></br>
+                              Name :-  {name} <br></br>
+                              Category :-   {category} <br></br>
+                              Price :-  {price}/kg <br></br>
+                              {/* <button onClick={()=>deleteData(id)} >Delete</button> */}
+                              <button onClick={()=>addInCart(item)}>Buy</button>
+                            </p>
+                            
+                             </div>
+                            </>
+                        )
+                    })
+                }
+                </>
+            )
 }

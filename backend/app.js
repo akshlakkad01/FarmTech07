@@ -14,14 +14,19 @@ const bodyparser = require('body-parser');
 const { name } = require('ejs');
 const jwt=require("jsonwebtoken");
 
+<<<<<<< HEAD
 const cookieParser = require('cookie-parser');
+=======
+
+const cookieParser = require("cookie-parser");
+>>>>>>> 2794f1c1de8039fcb85f387c162cfaf61de87b09
 
 app.use(cookieParser());
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 app.engine("ejs",ejsMate);
 app.use(express.urlencoded({extended : true}));
-app.use(cors());
+app.use(cors({origin: "http://localhost:5173", credentials:true}));
 app.use(bodyparser.json());
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/agri";
@@ -48,7 +53,11 @@ async function main() {
 
 app.get("/",(req,res)=>
 {
+<<<<<<< HEAD
     
+=======
+    // res.send("welcome to website")
+>>>>>>> 2794f1c1de8039fcb85f387c162cfaf61de87b09
     res.cookie('cookie','krish',{ maxAge: 900000, httpOnly: true });
    res.send("cookie has been saved")
 })
@@ -67,7 +76,6 @@ app.get("/items",async(req,res)=>
   app.get("/showPro",async(req,res)=>
   {
     const items=await Item.find();
-    console.log("working");
     res.send(items);
   
   })
@@ -113,6 +121,7 @@ app.post("/addCart",async(req,res)=>
 app.get("/showCart",async(req,res)=>
 {
   const item = await Cart.find();
+<<<<<<< HEAD
   if(item == null)
   {
     res.send("your cart is empty");
@@ -122,10 +131,13 @@ app.get("/showCart",async(req,res)=>
     res.send(item);
   }
   
+=======
+  res.send(item);
+>>>>>>> 2794f1c1de8039fcb85f387c162cfaf61de87b09
 })
 
-//login data
-app.post("/login",async(req,res)=>
+//signup data
+app.post("/signup",async(req,res)=>
 {
   let token;
   const data={
@@ -137,11 +149,34 @@ app.post("/login",async(req,res)=>
   const userSingup=User.findOne({email:data.email});
   console.log("user detail has been successfuly added");
    token = jwt.sign({_id:this._id},"mysecret");
+<<<<<<< HEAD
    res.cookie('cookie',token,{ httpOnly: true });
    
+=======
+>>>>>>> 2794f1c1de8039fcb85f387c162cfaf61de87b09
    console.log(token);
+   res.cookie('cookie',token);
+   res.status(201).send({data: "AAvi gya ho"});
 })
 
+//check for loged in user
+app.post("/login",async(req,res)=>
+{
+  const data = {
+    name:req.body.username,
+    email:req.body.email,
+    password:req.body.password
+  }
+  const check = await User.findOne({email:data.email})
+  console.log(check);
+  
+    if(!check) {
+      console.log("you are not my friend");
+  }
+  else{
+    console.log("you logedd in my friend");
+  }
+})
 
 app.listen(port,()=>
 {
