@@ -148,24 +148,30 @@ app.post("/signup",async(req,res)=>
 //check for loged in user
 app.post("/login",async(req,res)=>
 {
-  const data = {
-    name:req.body.username,
-    email:req.body.email,
-    password:req.body.password
+  try {
+    const data = {
+      name:req.body.username,
+      email:req.body.email,
+      password:req.body.password
+    }
+    const check = await User.findOne({email:data.email})
+    console.log(check);
+    
+      if(!check) {
+        console.log("you are not my friend");
+        res.status(401).send("Unauthorized");
+    }
+    else{
+      console.log("you logedd in my friend");
+      let token = jwt.sign({email:data.email},"mysecret");
+      console.log(token);
+      res.cookie('loginCookie','bhai123',{httpOnly: true });
+      res.status(200).send("Login successful")
+    }
   }
-  const check = await User.findOne({email:data.email})
-  console.log(check);
-  
-    if(!check) {
-      console.log("you are not my friend");
-      res.status(401).send("Unauthorized");
-  }
-  else{
-    console.log("you logedd in my friend");
-    let token = jwt.sign({email:data.email},"mysecret");
-    console.log(token);
-    res.cookie('loginCookie','bhai123',{ maxAge: 900000, httpOnly: true });
-    res.status(200).send("Login successful")
+  catch(error)
+  {
+    res.status(404).send("Internal Server Error");
   }
 })
 
