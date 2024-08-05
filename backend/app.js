@@ -51,6 +51,7 @@ app.get("/",(req,res)=>
 {
     // res.send("welcome to website")
     res.cookie('cookie','krish',{ maxAge: 900000, httpOnly: true });
+    res.cookie('cookies','krishKadchhi',{ maxAge: 900000, httpOnly: true });
    res.send("cookie has been saved")
 })
 
@@ -147,9 +148,14 @@ app.post("/login",async(req,res)=>
   
     if(!check) {
       console.log("you are not my friend");
+      res.status(401).send("Unauthorized");
   }
   else{
     console.log("you logedd in my friend");
+    let token = jwt.sign({email:data.email},"mysecret");
+    console.log(token);
+    res.cookie('loginCookie','bhai123',{ maxAge: 900000, httpOnly: true });
+    res.status(200).send("Login successful")
   }
 })
 
