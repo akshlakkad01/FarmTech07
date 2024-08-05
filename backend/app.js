@@ -14,8 +14,12 @@ const bodyparser = require('body-parser');
 const { name } = require('ejs');
 const jwt=require("jsonwebtoken");
 
+<<<<<<< HEAD
+const cookieParser = require('cookie-parser');
+=======
 
 const cookieParser = require("cookie-parser");
+>>>>>>> 2794f1c1de8039fcb85f387c162cfaf61de87b09
 
 app.use(cookieParser());
 app.set("view engine","ejs");
@@ -49,7 +53,11 @@ async function main() {
 
 app.get("/",(req,res)=>
 {
+<<<<<<< HEAD
+    
+=======
     // res.send("welcome to website")
+>>>>>>> 2794f1c1de8039fcb85f387c162cfaf61de87b09
     res.cookie('cookie','krish',{ maxAge: 900000, httpOnly: true });
     res.cookie('cookies','krishKadchhi',{ maxAge: 900000, httpOnly: true });
    res.send("cookie has been saved")
@@ -114,7 +122,19 @@ app.post("/addCart",async(req,res)=>
 app.get("/showCart",async(req,res)=>
 {
   const item = await Cart.find();
+<<<<<<< HEAD
+  if(item == null)
+  {
+    res.send("your cart is empty");
+  }
+  else {
+    console.log("data sent");
+    res.send(item);
+  }
+  
+=======
   res.send(item);
+>>>>>>> 2794f1c1de8039fcb85f387c162cfaf61de87b09
 })
 
 //signup data
@@ -130,6 +150,11 @@ app.post("/signup",async(req,res)=>
   const userSingup=User.findOne({email:data.email});
   console.log("user detail has been successfuly added");
    token = jwt.sign({_id:this._id},"mysecret");
+<<<<<<< HEAD
+   res.cookie('cookie',token,{ httpOnly: true });
+   
+=======
+>>>>>>> 2794f1c1de8039fcb85f387c162cfaf61de87b09
    console.log(token);
    res.cookie('cookie',token);
    res.status(201).send({data: "AAvi gya ho"});
