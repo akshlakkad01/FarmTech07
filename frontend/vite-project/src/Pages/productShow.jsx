@@ -47,17 +47,11 @@ export default function ProductShow() {
     console.log(cookie);
         return(
             <>
-<<<<<<< HEAD
              <Navigate to="/singup" />
            
           
             <h1>All Products</h1>
             {
-                myData.map((item)=>
-=======
-              <h1>All Products</h1>
->>>>>>> 2794f1c1de8039fcb85f387c162cfaf61de87b09
-                {
                     myData.map((item)=>
                     {
                         const {id,name,category,price,image} = item;
@@ -78,7 +72,7 @@ export default function ProductShow() {
                             </>
                         )
                     })
-                }
+}
                 </>
             )
 }
