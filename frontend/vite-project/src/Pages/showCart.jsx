@@ -43,7 +43,7 @@ export default function Cart() {
                             return (
                                 <tr key={id}>
                                     <td><i className="fa-regular fa-circle-xmark"></i><a href="#"></a></td>
-                                    <td><img src="./img1/blog-3.jpg" alt="" /></td>
+                                    <td><img src="./public/img1/blog-3.jpg" alt="" /></td>
                                     <td>{item}</td>
                                     <td>${price}</td>
                                     <td><input type="number" defaultValue="1" /></td>
@@ -85,7 +85,7 @@ export default function Cart() {
 
             <footer id="footer" className="section-p1">
                 <div className="col">
-                    <img className="logo" src="./img1/logo.png" alt="Logo" />
+                    <img className="logo" src="./public/img1/logo.png" alt="Logo" />
                     <h4>Contact</h4>
                     <p><strong>Address:</strong> Anand, Gujarat</p>
                     <p><strong>Phone:</strong> +91 1234567890</p>

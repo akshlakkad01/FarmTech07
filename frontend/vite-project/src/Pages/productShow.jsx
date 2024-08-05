@@ -47,7 +47,7 @@ export default function ProductShow() {
     console.log(cookie);
         return(
             <>
-             <Navigate to="/singup" />
+             
            
           
             <h1>All Products</h1>
