@@ -22,7 +22,7 @@ export default function Login () {
                 alert("you can't login in the website")
             }
             else{
-                console.log("THAyu ho");
+                console.log("Thank You");
                 const res = await axios.post("http://localhost:8080/login",data)
                 .then((res) => {
                     console.log(res.data);
@@ -36,16 +36,22 @@ export default function Login () {
         }
         function showPass() {
             let password = document.getElementById("password");
-            document.getElementById("showPassword").addEventListener("click",()=>{
-                // password.type === "password"?"text":"password";
-                if(password.type == "password") {
-                    password.type = "text";
-                }
-                else{
-                    password.type = "password";
-                }
-            })
-        }
+            let showPasswordBtn = document.getElementById("showPassword");
+          
+            showPasswordBtn.addEventListener("click", () => {
+              if (password.type === "password") {
+                password.type = "text";
+              } else {
+                password.type = "password";
+              }
+            });
+          }
+          
+          // Call the function when the page loads to set up the event listener
+          window.onload = function() {
+            showPass();
+          };
+          
     return(
         <div className="login-container">
         <h1>Login Page</h1>
