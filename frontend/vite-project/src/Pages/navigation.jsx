@@ -3,7 +3,7 @@ import "./style.css"
 export default function Navigation() {
     return (
         <section id="header">
-            <a href="/"><img src="./Farmtech/img/logo/logo.png" className="logo" alt=""></img></a>
+            <a href="/"><img src="./Farmtech/img1/logo.png" className="logo" alt=""></img></a>
         <div>
             <ul id="navbar">
                 <li><a className="active" href="/">Home</a></li>

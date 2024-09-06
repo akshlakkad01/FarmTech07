@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import "./style.css"
 
+
 export default function Index() {
 
     const navigate = useNavigate();
@@ -58,7 +59,7 @@ export default function Index() {
 
         <footer id="footer" className="section-p1">
             <div className="col">
-                <img className="logo" src="./Farmtech/img/logo/logo.png" alt=""></img>
+                <img className="logo" src="./Farmtech/img1/logo.png" alt=""></img>
                 <h4>Contact</h4>
                 <p><strong>Address:</strong>changa,Anand</p>
                 <p><strong>Phone:</strong>+91 7984316011</p>
