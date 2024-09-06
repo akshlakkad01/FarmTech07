@@ -58,8 +58,10 @@ export default function Index() {
         </section> */}
 
         <footer id="footer" className="section-p1">
+            <div className="logofooter">
+            <img className="logo" src="./Farmtech/img1/logo.png" alt=""></img>
+            </div>
             <div className="col">
-                <img className="logo" src="./Farmtech/img1/logo.png" alt=""></img>
                 <h4>Contact</h4>
                 <p><strong>Address:</strong>changa,Anand</p>
                 <p><strong>Phone:</strong>+91 7984316011</p>
