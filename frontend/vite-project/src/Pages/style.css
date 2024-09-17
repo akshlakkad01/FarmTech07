@@ -764,6 +764,19 @@ background-image: url("./img/banner/b19.jpg");
 #cart {
     overflow: auto;
   }
+#cart-header{
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  flex-direction: column;
+  padding: 14px;
+  height: 60vh;
+  background-image: url("./public/img1/carousel-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
 #cart table{
   width: 100%;
   border-collapse: collapse;  
