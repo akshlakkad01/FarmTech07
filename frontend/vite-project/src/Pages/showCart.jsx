@@ -5,6 +5,23 @@ import axios from 'axios';
 
 export default function Cart() {
     const [myData, setData] = useState([]);
+    const [Quant , setQuant] = useState([]);
+    const [priceXquant , setpriceXquant] = useState();
+    const [subtotal , setSubtotal] = useState([])
+    const [total , setTotal] = useState(1);
+
+    console.log(Quant);
+    
+
+    function getTotal() {
+        for(let i=0;i<subtotal.length;i++)
+        {
+            let t=0;
+            t=t+subtotal[i];
+            console.log(t)
+            setTotal(t);
+        }
+    }
 
     useEffect(() => {
         axios.get('http://localhost:8080/showCart')
@@ -26,99 +43,95 @@ export default function Cart() {
             </section>
 
             <section id="cart" className="section-p1">
-                <table width="100%">
-                    <thead>
-                        <tr>
-                            <td>Remove</td>
-                            <td>Image</td>
-                            <td>Product</td>
-                            <td>Price/Kg</td>
-                            <td>Quantity(Kg)</td>
-                            <td>Subtotal</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {myData.map((pro) => {
-                            let { id, item, category, price } = pro;
-                            return (
-                                <tr key={id}>
-                                    <td><i className="fa-regular fa-circle-xmark"></i><a href="#"></a></td>
-                                    <td><img src="./public/img1/blog-3.jpg" alt="" /></td>
-                                    <td>{item}</td>
-                                    <td>${price}</td>
-                                    <td><input type="number" defaultValue="1" /></td>
-                                    <td>${price}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
-            </section>
+    <table width="100%">
+        <thead>
+            <tr>
+                <td>Remove</td>
+                <td>Image</td>
+                <td>Product</td>
+                <td>Price/Kg</td>
+                <td>Quantity(Kg)</td>
+                <td>Subtotal</td>
+            </tr>
+        </thead>
+        <tbody>
+            {myData.map((pro) => {
+                const { id, item, category, price } = pro;
+                const quantity = Quant[id] || 1;
+                return (
+                    <tr key={id}>
+                        <td><i className="fa-regular fa-circle-xmark"></i><a href="#"></a></td>
+                        <td><img src="./img1/blog-3.jpg" alt="" /></td>
+                        <td>{item}</td>
+                        <td>${price}</td>
+                        <td>
+                            <input 
+                                type="number" 
+                                min={1} 
+                                value={Quant} 
+                                onChange={(e) => handleQuantityChange(id, e.target.value)} 
+                            />
+                        </td>
+                        <td>${(price * quantity).toFixed(2)}</td>
+                    </tr>
+                );
+            })}
+        </tbody>
+    </table>
+</section>
 
-            <section id="cart-add" className="section-p1">
-                {/* <div id="coupon">
-                    <h3>Apply Coupon</h3>
-                    <div>
-                        <input type="text" placeholder="Enter Your Coupon" />
-                        <button className="normal">Apply</button>
-                    </div>
-                </div> */}
-                <div id="subtotal">
-                    <h3>Cart Totals</h3>
-                    <table>
-                        <tr>
-                            <td>Cart Subtotal</td>
-                            <td>$ 335</td>
-                        </tr>
-                        <tr>
-                            <td>Shipping</td>
-                            <td>Free</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Total</strong></td>
-                            <td><strong>$ 335</strong></td>
-                        </tr>
-                    </table>
-                    <button className="normal">Proceed to Checkout</button>
-                </div>
-            </section>
+
+<section id="cart-add" className="section-p1">
+    <div id="subtotal">
+        <h3>Cart Totals</h3>
+        <table>
+            <tr>
+                <td>Cart Subtotal</td>
+                <td>${total.toFixed(2)}</td>
+            </tr>
+            <tr>
+                <td>Shipping</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td><strong>${total.toFixed(2)}</strong></td>
+            </tr>
+        </table>
+        <button className="normal">Proceed to Checkout</button>
+    </div>
+</section>
+
 
             <footer id="footer" className="section-p1">
-            <div className="logofooter">
-            <img className="logo" src="./Farmtech/img1/logo.png" alt=""></img>
-            </div>
-            <div className="col">
-                <h4>Contact</h4>
-                <p><strong>Address:</strong>changa,Anand</p>
-                <p><strong>Phone:</strong>+91 7984316011</p>
-                <p><strong>Hours:</strong>24/7</p>
-                <h4>Follow Us</h4>
-                <div className="follow">
-                    <i className="fa-brands fa-facebook"></i>
-                    <i className="fa-brands fa-twitter"></i>
-                    <i className="fa-brands fa-instagram"></i>
-                    <i className="fa-brands fa-pinterest"></i>
-                    <i className="fa-brands fa-youtube"></i>
+                <div className="col">
+                    <img className="logo" src="./img1/logo.png" alt="Logo" />
+                    <h4>Contact</h4>
+                    <p><strong>Address:</strong> Anand, Gujarat</p>
+                    <p><strong>Phone:</strong> +91 1234567890</p>
+                    <p><strong>Hours:</strong> 24/7</p>
+                    <h4>Follow Us</h4>
+                    <div className="follow">
+                        <i className="fa-brands fa-facebook-f"></i>
+                        <i className="fa-brands fa-twitter"></i>
+                        <i className="fa-brands fa-instagram"></i>
+                    </div>
                 </div>
-            </div>
-            <div className="col">
-                <h4>About</h4>
-                <a href="#">About us</a>
-                <a href="#">Contact Us</a>
-            </div>
-            <div className="col">
-                <h4>My Account</h4>
-                <a href="#">Sign in</a>
-                <a href="#">View Cart</a>
-                <a href="#">My Wishlist</a>
-                <a href="#">Help</a>
-            </div>
-            <div className="col install">
-               
+                <div className="col">
+                    <h4>About</h4>
+                    <a href="#">About us</a>
+                    <a href="#">Delivery Information</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Contact Us</a>
                 </div>
-            
-        </footer>
-        
+                <div className="col">
+                    <h4>My Account</h4>
+                    <a href="#">Sign in</a>
+                    <a href="#">View Cart</a>
+                    <a href="#">Help</a>
+                </div>
+            </footer>
         </>
     );
 }
