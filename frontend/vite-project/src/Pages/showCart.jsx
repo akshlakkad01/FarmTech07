@@ -1,5 +1,6 @@
 import React from 'react';
 import './productShow.css';
+import './style.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -21,7 +22,7 @@ export default function Cart() {
             
 
             <section id="cart-header" className="about-header">
-                <h1 style={{ color: 'lawngreen' }}>#Shop Cart</h1>
+                <h1 style={{ color: 'lawngreen'}}>#Shop Cart</h1>
                 <p style={{ color: 'lawngreen' }}>Buy What You Want.</p>
             </section>
 

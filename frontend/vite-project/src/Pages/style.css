@@ -86,8 +86,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 80px;
-  background: #79d412;
+  padding: 10px 80px;
+  background: #4fd412;
   box-shadow: 0 5px 15px rgba(0,0,0,0.06);
   z-index: 999;
   position: sticky;
@@ -774,6 +774,7 @@ background-image: url("./img/banner/b19.jpg");
   background-image: url("./public/img1/carousel-1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  font-size: 2000px;
 }
 
 
