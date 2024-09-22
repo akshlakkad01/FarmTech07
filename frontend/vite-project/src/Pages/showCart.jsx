@@ -64,7 +64,7 @@ export default function Cart() {
                         <td><i className="fa-regular fa-circle-xmark"></i><a href="#"></a></td>
                         <td><img src="./img1/blog-3.jpg" alt="" /></td>
                         <td>{item}</td>
-                        <td>${price}</td>
+                        <td>₹{price}</td>
                         <td>
                             <input 
                                 type="number" 
@@ -73,7 +73,7 @@ export default function Cart() {
                                 onChange={(e) => handleQuantityChange(id, e.target.value)} 
                             />
                         </td>
-                        <td>${(price * quantity).toFixed(2)}</td>
+                        <td>₹{(price * quantity).toFixed(2)}</td>
                     </tr>
                 );
             })}
@@ -88,7 +88,7 @@ export default function Cart() {
         <table>
             <tr>
                 <td>Cart Subtotal</td>
-                <td>${total.toFixed(2)}</td>
+                <td>₹{total.toFixed(2)}</td>
             </tr>
             <tr>
                 <td>Shipping</td>
@@ -96,7 +96,7 @@ export default function Cart() {
             </tr>
             <tr>
                 <td><strong>Total</strong></td>
-                <td><strong>${total.toFixed(2)}</strong></td>
+                <td><strong>₹{total.toFixed(2)}</strong></td>
             </tr>
         </table>
         <button className="normal">Proceed to Checkout</button>
