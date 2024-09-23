@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Account</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .user-account-container {
+            display: flex;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .account-sidebar {
+            flex: 1;
+            background: #4caf50;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .account-sidebar h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .account-sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .account-sidebar li {
+            padding: 10px 0;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .account-sidebar li:hover {
+            color: #ddd;
+        }
+
+        .account-details {
+            flex: 3;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-section {
+            margin-bottom: 20px;
+        }
+
+        .profile-section h2 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .orders-section h2 {
+            margin-bottom: 10px;
+        }
+
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .orders-table th,
+        .orders-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .orders-table th {
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        .orders-table tr:hover {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="user-account-container">
+        <!-- Sidebar Section -->
+        <div class="account-sidebar">
+            <h3>My Account</h3>
+            <ul>
+                <li>Profile</li>
+                <li>Orders</li>
+                <!-- <li>Wishlist</li> -->
+                <li>Settings</li>
+                <li>Logout</li>
+            </ul>
+        </div>
+
+        <!-- Main Account Details Section -->
+        <div class="account-details">
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <h2>Welcome, Akshay Lakkad</h2>
+                <p>Email: ak@gmail.com</p>
+                <p>Phone: +91 9897969594</p>
+            </div>
+
+            <!-- Orders Section -->
+            <div class="orders-section">
+                <h2>Your Orders</h2>
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12345</td>
+                            <td>2024-09-20</td>
+                            <td>Delivered</td>
+                            <td>₹45.00</td>
+                        </tr>
+                        <tr>
+                            <td>12346</td>
+                            <td>2024-09-19</td>
+                            <td>Shipped</td>
+                            <td>₹32.00</td>
+                        </tr>
+                        <tr>
+                            <td>12347</td>
+                            <td>2024-09-18</td>
+                            <td>Processing</td>
+                            <td>₹28.50</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

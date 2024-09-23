@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './productShow.css';
+import './style.css';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import './productShow.css';
 
 export default function Cart() {
     const [cartItems, setCartItems] = useState([]);
@@ -44,7 +48,7 @@ export default function Cart() {
     return (
         <>
             <section id="cart-header" className="about-header">
-                <h1 style={{ color: 'lawngreen' }}>#Shop Cart</h1>
+                <h1 style={{ color: 'lawngreen'}}>#Shop Cart</h1>
                 <p style={{ color: 'lawngreen' }}>Buy What You Want.</p>
             </section>
 

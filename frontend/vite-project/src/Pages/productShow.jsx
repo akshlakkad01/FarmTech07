@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 import axios from "axios";
-import './productShow.css';
-import { v4 as uuidv4 } from 'uuid';
+import "./productShow.css";
 
 export default function ProductShow() {
     
@@ -75,7 +74,4 @@ console.log(secondCookie);
                             </>
                         )
                     })
-}
-                </>
-            )
 }
