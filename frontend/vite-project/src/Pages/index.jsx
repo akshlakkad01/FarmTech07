@@ -11,7 +11,7 @@ export default function Index() {
     const navigate = useNavigate();
     function goShop() {
         navigate("/showProduct")
-        c
+        
     }
      return (
         <>

@@ -25,13 +25,12 @@ export default function Login () {
                 console.log("Thank You");
                 const res = await axios.post("http://localhost:8080/login",data)
                 .then((res) => {
-                    console.log(res.data);
+                    console.log("lodu");
+                    navigate("/")
                 })
-                .catch((err)=>console.log(err));
-                
-    
-                
+                .catch((err)=>console.log("internal server error"));
             }
+    
            
         }
         function showPass() {
@@ -77,5 +76,7 @@ export default function Login () {
             <a href="#" id="forgotPasswordLink">Forgot Password?</a>
         </div>
     </div>
+    
     )
+   
 }

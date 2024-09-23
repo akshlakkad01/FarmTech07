@@ -27,7 +27,7 @@ import './signup.css';
             alert("you can't singup in the website")
         }
         else{
-            navigate("/")
+             navigate("/")
             console.log("THAyu ho");
             const res = await axios.post("http://localhost:8080/signup",data)
             .then((res) => {

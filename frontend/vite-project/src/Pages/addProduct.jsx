@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
 import "./addProduct.css";
 
 export default function AddProduct() {
@@ -9,6 +10,9 @@ export default function AddProduct() {
     const [category, setCategory] = useState("");
     const [price, setPrice] = useState(0);
     const navigate = useNavigate();
+
+    const firstCookie = Cookies.get('cookie');
+    const secondCookie = Cookies.get('loginCookie');
 
     const handleSave = async (e) => {
         e.preventDefault();
@@ -30,7 +34,7 @@ export default function AddProduct() {
                 console.error("Error saving the product:", err);
             }
     };
-if (!document.cookie) {
+if (!(firstCookie || secondCookie)) {
     return <Navigate to="/signup" />;
 }
     return (
