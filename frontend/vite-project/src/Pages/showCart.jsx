@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './productShow.css';
 import './style.css';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import './productShow.css';
+
 
 export default function Cart() {
     const [cartItems, setCartItems] = useState([]);

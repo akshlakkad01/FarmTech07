@@ -119,7 +119,6 @@ app.get("/showCart",async(req,res)=>
     res.send("your cart is empty");
   }
   else {
-    console.log("data sent");
     res.send(item);
   }
   
@@ -165,7 +164,7 @@ app.post("/login",async(req,res)=>
       console.log("you logedd in my friend");
       let token = jwt.sign({email:data.email},"mysecret");
       console.log(token);
-      res.cookie('loginCookie','bhai123',{httpOnly: true });
+      res.cookie('loginCookie', token, { httpOnly: false });
       res.status(200).send("Login successful")
     }
   }
