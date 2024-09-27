@@ -1,31 +1,27 @@
-const { type } = require('express/lib/response');
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const jwt = require("jsonwebtoken");
 
 const userSchema = new Schema({
-    name: {
-        type:String,
-        require:true
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  cart: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Cart",
     },
-    email: {
-        type:String,
-        require:true
-    },
-    password:{
-        type:String,
-        require:true
-    },
-    tokens:
-    [
-        {
-            token: {
-                type:String,
-                require:true
-            }
-        }
-    ]
+  ],
 });
 
-const User = mongoose.model("User",userSchema);
+const User = mongoose.model("User", userSchema);
 module.exports = User;
