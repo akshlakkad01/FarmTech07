@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 import axios from "axios";
 import "./productShow.css";
 
@@ -8,8 +8,8 @@ export default function ProductShow() {
   const [myData, setData] = useState([]);
   const navigate = useNavigate();
 
-  const firstCookie = Cookies.get('cookie');
-  const secondCookie = Cookies.get('loginCookie');
+  const firstCookie = Cookies.get("cookie");
+  const secondCookie = Cookies.get("loginCookie");
 
   const addInCart = async (item) => {
     alert("Product added to the cart");
@@ -17,7 +17,7 @@ export default function ProductShow() {
       cart_id: item.id,
       cart_name: item.name,
       cart_category: item.category,
-      cart_price: item.price
+      cart_price: item.price,
     };
     await axios.post("http://localhost:8080/addCart", data);
   };
