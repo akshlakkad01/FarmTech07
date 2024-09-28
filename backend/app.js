@@ -88,28 +88,6 @@ app.delete("/deleteProduct/:id", async (req, res) => {
   console.log("successfuly deleted");
 });
 
-//add products in cart
-app.post("/addCart", async (req, res) => {
-  const data = {
-    id: req.body.cart_id,
-    item: req.body.cart_name,
-    category: req.body.cart_category,
-    price: req.body.cart_price,
-  };
-  await Cart.insertMany(data);
-  console.log("item add successfuly in the database");
-});
-
-//show cart product
-app.get("/showCart", async (req, res) => {
-  const item = await Cart.find();
-  if (item == null) {
-    res.send("your cart is empty");
-  } else {
-    res.send(item);
-  }
-});
-
 //signup data
 app.post("/signup", async (req, res) => {
   let token;
@@ -121,7 +99,7 @@ app.post("/signup", async (req, res) => {
   await User.insertMany(data);
   const userSingup = User.findOne({ email: data.email });
   console.log("user detail has been successfuly added");
-  token = jwt.sign({ _id: this._id }, "mysecret");
+  token = jwt.sign({ email: userSingup.email }, "mysecret");
   res.cookie("cookie", token, { httpOnly: true });
 
   console.log(token);
@@ -137,21 +115,70 @@ app.post("/login", async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     };
-    const check = await User.findOne({ email: data.email });
-    console.log(check);
+    const user = await User.findOne({ email: data.email });
+    console.log(user);
 
-    if (!check) {
+    if (!user) {
       console.log("you are not my friend");
       res.status(401).send("Unauthorized");
     } else {
       console.log("you logedd in my friend");
-      let token = jwt.sign({ email: data.email }, "mysecret");
+      let token = jwt.sign({ email: data.email }, "mysecret2");
       console.log(token);
       res.cookie("loginCookie", token, { httpOnly: false });
       res.status(200).send("Login successful");
     }
   } catch (error) {
     res.status(404).send("Internal Server Error");
+  }
+});
+
+//add products in cart
+app.post("/addCart", async (req, res) => {
+  const data = {
+    id: req.body.cart_id,
+    item: req.body.cart_name,
+    category: req.body.cart_category,
+    price: req.body.cart_price,
+  };
+  await Cart.insertMany(data);
+  const token = req.cookies.loginCookie;
+  const decoded = jwt.verify(token, "mysecret2");
+  req.email = decoded.email;
+  console.log("vahh loda vahh loda");
+  await User.findOneAndUpdate(
+    { email: req.email },
+    {
+      $push: {
+        cart: {
+          id: data.id,
+          item: data.item,
+          category: data.category,
+          price: data.price,
+        },
+      },
+    },
+    { new: true }
+  );
+
+  console.log(req.email);
+  console.log("item add successfuly in the database");
+});
+
+//show cart product
+app.get("/showCart", async (req, res) => {
+  const token = req.cookies.loginCookie;
+  const decoded = jwt.verify(token, "mysecret2");
+  req.email = decoded.email;
+
+  const item = await User.findOne({ email: req.email }).select("cart");
+  // const item = await Cart.find();
+  console.log(item.cart);
+
+  if (item == null) {
+    res.send("your cart is empty");
+  } else {
+    res.send(item.cart);
   }
 });
 
