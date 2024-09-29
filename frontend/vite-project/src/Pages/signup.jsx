@@ -58,15 +58,22 @@ import './signup.css';
         <form id="signupForm">
             <div className="input-group">
                 <label htmlFor="username">Username</label>
-                <input type="text" className='username' id="username" value={username} onChange={(e)=>setUsername(e.target.value)} required></input>
+                <input 
+                type="text" 
+                id="username" 
+                value={username} 
+                placeholder='Enter your username'
+                onChange={(e)=>setUsername(e.target.value)} required>
+
+                </input>
             </div>
             <div className="input-group">
                 <label htmlFor="email">Email</label>
-                <input type="email" className='email' id="email" value={email} onChange={(e)=>setEmail(e.target.value)} required></input>
+                <input type="email" className='email' id="email" value={email} placeholder='Enter your email' onChange={(e)=>setEmail(e.target.value)} required></input>
             </div>
             <div className="input-group">
                 <label htmlFor="password">Password</label>
-                <input type="password" id="password" value={password} onChange={(e)=>setPass(e.target.value)}required></input>
+                <input type="password" id="password" value={password} placeholder='Enter your password' onChange={(e)=>setPass(e.target.value)}required></input>
             </div>
             <div className="showPassword">
                 <input type="checkbox" onClick={showPass} id="showPassword"></input> Show Password

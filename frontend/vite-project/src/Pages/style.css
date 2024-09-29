@@ -133,7 +133,56 @@ body {
 #close {
   display: none;
 }
+nav {
+  background-color: #333;
+  padding: 1rem;
+}
 
+.nav-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-item {
+  margin: 0 1rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/* Hamburger menu icon (hidden by default) */
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-item {
+    margin: 0.5rem 0;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  /* Show the nav-list when it has the 'active' class */
+  .nav-list.active {
+    display: flex;
+  }
+}
 /* Home Page */
 #hero {
   background-image: url("./Farmtech/img/backhome1.webp");
@@ -765,7 +814,7 @@ footer .copyright {
   flex-direction: column;
   padding: 14px;
   height: 60vh;
-  background-image: url("./public/img1/carousel-1.jpg");
+  background-image: url("./public/img1/cart7.png");
   background-repeat: no-repeat;
   background-size: cover;
   font-size: 2000px;
@@ -842,7 +891,7 @@ footer .copyright {
 }
 #coupon button,
 #subtotal button {
-  background-color: #088178;
+  background-color: #19ad19;
   color: white;
   padding: 12px 20px;
 }

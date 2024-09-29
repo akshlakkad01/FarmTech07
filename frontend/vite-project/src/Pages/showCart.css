@@ -1,0 +1,115 @@
+.signup-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid #d0d0d0; 
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    line-height: 1.0;
+}
+
+.password-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .password-input-container input {
+    width: 100%;
+    padding-right: 120px; /* Make room for the button */
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .toggle-password svg {
+    width: 20px;
+    height: 20px;
+    color: #888; /* Adjust color as needed */
+  }
+  
+  /* Remove any existing hover effects */
+  .toggle-password:hover {
+    background: none;
+    color: inherit;
+  }
+  
+  /* Ensure no outline on focus for better visual integration */
+  .toggle-password:focus {
+    outline: none;
+  }
+
+
+.signup-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    line-height: 1.0;
+}
+
+.signup-button:hover {
+    background-color: #3d8d41;
+}
+
+.links {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.links a {
+    color: #4CAF50;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}

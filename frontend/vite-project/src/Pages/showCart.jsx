@@ -66,8 +66,8 @@ export default function Cart() {
         <table width="100%">
           <thead>
             <tr>
-              <td>Remove</td>
-              <td>Image</td>
+              {/* <td>Remove</td> */}
+              {/* <td>Image</td> */}
               <td>Product</td>
               <td>Price/Kg</td>
               <td>Quantity(Kg)</td>
