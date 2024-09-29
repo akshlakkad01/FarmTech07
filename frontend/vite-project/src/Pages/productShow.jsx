@@ -1,8 +1,81 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import axios from "axios";
-import "./productShow.css";
+
+const styles = `
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .product-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-content {
+    padding: 1rem;
+  }
+  
+  .product-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-category {
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-price {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #2c7a2c;
+  }
+  
+  .product-footer {
+    background-color: #f5f5f5;
+    padding: 1rem;
+  }
+  
+  .buy-button {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .buy-button:hover {
+    background-color: #2980b9;
+  }
+  
+  .no-products {
+    text-align: center;
+    color: #666;
+  }
+`;
 
 export default function ProductShow() {
   const [myData, setData] = useState([]);
@@ -22,14 +95,6 @@ export default function ProductShow() {
     await axios.post("http://localhost:8080/addCart", data);
   };
 
-  const deleteData = (id) => {
-    axios
-      .delete(`http://localhost:8080/deleteProduct/${id}`)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-    console.log(id);
-  };
-
   useEffect(() => {
     if (!(firstCookie || secondCookie)) {
       navigate("/signup");
@@ -43,25 +108,36 @@ export default function ProductShow() {
 
   return (
     <>
-      <h1>All Products</h1>
-      {myData.length > 0 ? (
-        myData.map((item) => {
-          const { id, name, category, price } = item;
-          return (
-            <div className="productList" key={id}>
-              <p>
-                ID: {id} <br />
-                Name: {name} <br />
-                Category: {category} <br />
-                Price: {price}/kg <br />
-                <button onClick={() => addInCart(item)}>Buy</button>
-              </p>
-            </div>
-          );
-        })
-      ) : (
-        <p>No products available</p>
-      )}
+      <style>{styles}</style>
+      <div className="container">
+        <h1>All Products</h1>
+        {myData.length > 0 ? (
+          <div className="product-grid">
+            {myData.map((item) => {
+              const { id, name, category, price } = item;
+              return (
+                <div className="product-card" key={id}>
+                  <div className="product-content">
+                    <h2 className="product-name">{name}</h2>
+                    <p className="product-category">Category: {category}</p>
+                    <p className="product-price">₹{price}/kg</p>
+                  </div>
+                  <div className="product-footer">
+                    <button
+                      className="buy-button"
+                      onClick={() => addInCart(item)}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <p className="no-products">No products available</p>
+        )}
+      </div>
     </>
   );
 }
