@@ -36,12 +36,15 @@ const styles = `
   
   .product-name {
     font-size: 1.25rem;
+    color: #2c7a2c;
     font-weight: 600;
     margin-bottom: 0.5rem;
   }
   
   .product-category {
-    color: #666;
+    color: #2c7a2c;
+    font-size: 1.25rem;
+    font-weight: 600;
     margin-bottom: 0.5rem;
   }
   
@@ -59,7 +62,7 @@ const styles = `
   .buy-button {
     width: 100%;
     padding: 0.5rem;
-    background-color: green;
+    background-color: #40ad43;
     color: white;
     border: none;
     border-radius: 4px;
@@ -68,7 +71,7 @@ const styles = `
   }
   
   .buy-button:hover {
-    background-color: #2980b9;
+    background-color: #47994c;
   }
   
   .no-products {
@@ -118,9 +121,9 @@ export default function ProductShow() {
               return (
                 <div className="product-card" key={id}>
                   <div className="product-content">
-                    <h2 className="product-name">{name}</h2>
-                    <p className="product-category">Category: {category}</p>
-                    <p className="product-price">₹{price}/kg</p>
+                    <h2 className="product-name">product:{name}</h2>
+                    <p className="product-category">Category:{category}</p>
+                    <p className="product-price">price:&#8377;{price}/kg</p>
                   </div>
                   <div className="product-footer">
                     <button

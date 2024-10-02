@@ -24,7 +24,7 @@ export default function Login() {
         .post("http://localhost:8080/login", data)
         .then((res) => {
           console.log("done");
-          navigate("/");
+          navigate("/productShow");
         })
         .catch((err) => console.log("internal server error"));
     }

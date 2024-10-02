@@ -72,7 +72,7 @@ app.post("/add", async (req, res) => {
   const data = {
     id: req.body.product_id,
     name: req.body.product_name,
-    category: req.body.product_catagory,
+    category: req.body.product_category,
     price: req.body.product_price,
   };
   await Item.insertMany(data);

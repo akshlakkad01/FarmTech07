@@ -48,7 +48,7 @@ export default function AdminSignup() {
   }
   return (
     <div className="signup-container">
-      <h1>Sign Up</h1>
+      <h1>Admin Login</h1>
       <form id="signupForm">
         <div className="input-group">
           <label htmlFor="username">Username</label>
@@ -90,7 +90,7 @@ export default function AdminSignup() {
           Show Password
         </div>
         <button type="submit" className="signupButton" onClick={getData}>
-          Signup
+          Login
         </button>
       </form>
       <div className="links">

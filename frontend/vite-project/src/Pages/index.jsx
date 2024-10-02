@@ -20,7 +20,7 @@ export default function Index() {
         <h4>Organic Vegetables</h4>
         <h2>Super value deals</h2>
         <h1>On all products</h1>
-        <button onClick={goShop}>Buy Now</button>
+        <button onClick={goShop}>Shop Now</button>
         </section>
         
         <section id="feature" className="section-p1">

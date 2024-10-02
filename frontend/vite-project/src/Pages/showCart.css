@@ -1,115 +1,118 @@
-.signup-container {
-    max-width: 400px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
-    border: 2px solid #d0d0d0; 
-}
-
-h1 {
+/* Cart styles */
+.cart-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  #cart-header {
+    background-color: #f8f9fa;
+    padding: 40px 0;
     text-align: center;
-    color: #333;
-    margin-bottom: 1.5rem;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.input-group {
-    margin-bottom: 1rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #555;
-    font-weight: 500;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    line-height: 1.0;
-}
-
-.password-input-container {
-    position: relative;
-    display: flex;
-    align-items: center;
+    margin-bottom: 30px;
   }
   
-  .password-input-container input {
-    width: 100%;
-    padding-right: 120px; /* Make room for the button */
+  #cart-header h1 {
+    color: #28a745;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
   }
   
-  .toggle-password {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
+  #cart-header p {
+    color: #6c757d;
+    font-size: 1.2rem;
+  }
+  
+  #cart table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+  }
+  
+  #cart thead {
+    background-color: #f8f9fa;
+  }
+  
+  #cart th,
+  #cart td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  #cart th {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  #cart .product-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+  
+  #cart .remove-btn {
+    color: #dc3545;
     cursor: pointer;
-    padding: 0;
+    font-size: 1.2rem;
+  }
+  
+  #cart input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  
+  #cart-add {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
   }
   
-  .toggle-password svg {
-    width: 20px;
-    height: 20px;
-    color: #888; /* Adjust color as needed */
+  #subtotal {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
   }
   
-  /* Remove any existing hover effects */
-  .toggle-password:hover {
-    background: none;
-    color: inherit;
+  #subtotal h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
   }
   
-  /* Ensure no outline on focus for better visual integration */
-  .toggle-password:focus {
-    outline: none;
+  #subtotal table {
+    width: 100%;
+    margin-bottom: 20px;
   }
-
-
-.signup-button {
-    background-color: #4CAF50;
+  
+  #subtotal td {
+    padding: 10px 0;
+  }
+  
+  #subtotal .checkout-btn {
+    background-color: #28a745;
     color: white;
     border: none;
-    border-radius: 4px;
+    padding: 12px 20px;
     font-size: 1rem;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    line-height: 1.0;
-}
-
-.signup-button:hover {
-    background-color: #3d8d41;
-}
-
-.links {
-    margin-top: 1rem;
-    text-align: center;
-}
-
-.links a {
-    color: #4CAF50;
-    text-decoration: none;
-    margin: 0 0.5rem;
-}
-
-.links a:hover {
-    text-decoration: underline;
-}
+  }
+  
+  #subtotal .checkout-btn:hover {
+    background-color: #218838;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    #cart-add {
+      flex-direction: column;
+    }
+  
+    #subtotal {
+      width: 100%;
+      margin-top: 20px;
+    }
+  }

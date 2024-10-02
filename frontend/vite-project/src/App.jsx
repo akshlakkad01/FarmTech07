@@ -8,6 +8,9 @@ import Layout from "./Pages/layout.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Index from "./Pages/index.jsx";
 import Signup from "./Pages/signup.jsx";
+import About from './Pages/about.jsx';
+import Contact from './Pages/contact.jsx';
+import Profile from './Pages/profile.jsx';
 import AdminSignup from "./Pages/adminSignup.jsx";
 
 function App() {
@@ -24,6 +27,9 @@ function App() {
           <Route path="/addProduct" element={<AddProduct />} />
           <Route path="/showCart" element={<ShowCart />} />
           <Route path="/adminSignup" element={<AdminSignup />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile/>} />
         </Routes>
       </BrowserRouter>
     </>
