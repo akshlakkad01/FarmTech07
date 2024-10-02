@@ -70,7 +70,7 @@ app.get("/showPro", async (req, res) => {
 app.post("/add", async (req, res) => {
   // console.log(req.body);
   const data = {
-    id: req.body.product_id,
+    // id: req.body.product_id,
     name: req.body.product_name,
     category: req.body.product_catagory,
     price: req.body.product_price,
@@ -136,7 +136,7 @@ app.post("/login", async (req, res) => {
 //add products in cart
 app.post("/addCart", async (req, res) => {
   const data = {
-    id: req.body.cart_id,
+    // id: req.body.cart_id,
     item: req.body.cart_name,
     category: req.body.cart_category,
     price: req.body.cart_price,
@@ -151,7 +151,7 @@ app.post("/addCart", async (req, res) => {
     {
       $push: {
         cart: {
-          id: data.id,
+          // id: data.id,
           item: data.item,
           category: data.category,
           price: data.price,
@@ -182,6 +182,36 @@ app.get("/showCart", async (req, res) => {
   }
 });
 
+//Delete product from cart
+// ... (previous code remains the same)
+
+//Delete product from cart
+app.post("/deleteCart", async (req, res) => {
+  try {
+    const item = req.body.item;
+    console.log("Removing item:", item);
+    const token = req.cookies.loginCookie;
+    const decoded = jwt.verify(token, "mysecret2");
+    req.email = decoded.email;
+
+    let user = await User.findOne({ email: req.email });
+    const initialLength = user.cart.length;
+    user.cart = user.cart.filter((cartItem) => cartItem.item !== item);
+
+    if (user.cart.length === initialLength) {
+      return res.status(404).send("Item not found in cart");
+    }
+
+    await user.save();
+    console.log("Item removed successfully");
+    res.status(200).send("Item removed successfully");
+  } catch (error) {
+    console.error("Error removing item from cart:", error);
+    res.status(500).send("Error removing item from cart");
+  }
+});
+
+// ... (rest of the server code remains the same)
 //admin access for addproducts
 app.post("/checkAdmin", async (req, res) => {
   const data = {
