@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import "./addProduct.css";
 
 export default function AddProduct() {
-  const [id, setID] = useState(0);
+  // const [id, setID] = useState(0);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState(0);
@@ -18,7 +18,7 @@ export default function AddProduct() {
   const handleSave = async (e) => {
     e.preventDefault();
     const data = {
-      product_id: id,
+      // product_id: id,
       product_name: name,
       product_category: category,
       product_price: +price,
@@ -26,7 +26,7 @@ export default function AddProduct() {
     try {
       const res = await axios.post("http://localhost:8080/add", data);
       console.log(res.data);
-      setID(0);
+
       setName("");
       setCategory("");
       setPrice(0);
@@ -41,14 +41,14 @@ export default function AddProduct() {
   return (
     <div className="addProduct">
       <form className="addpro" onSubmit={handleSave}>
-        <div className="form-group">
+        {/* <div className="form-group">
           <label>ID:</label>
           <input
             type="number"
             value={id}
             onChange={(e) => setID(Number(e.target.value))}
           />
-        </div>
+        </div> */}
         <div className="form-group">
           <label>Name:</label>
           <input

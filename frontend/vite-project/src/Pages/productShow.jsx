@@ -100,7 +100,7 @@ export default function ProductShow() {
       navigate("/signup");
     }
 
-    axios
+    const res = axios
       .get("http://localhost:8080/showPro")
       .then((res) => setData(res.data))
       .catch((err) => console.error(err));
@@ -109,34 +109,14 @@ export default function ProductShow() {
   return (
     <>
       <style>{styles}</style>
+
       <div className="container">
         <h1>All Products</h1>
-        {myData.length > 0 ? (
-          <div className="product-grid">
-            {myData.map((item) => {
-              const { id, name, category, price } = item;
-              return (
-                <div className="product-card" key={id}>
-                  <div className="product-content">
-                    <h2 className="product-name">{name}</h2>
-                    <p className="product-category">Category: {category}</p>
-                    <p className="product-price">₹{price}/kg</p>
-                  </div>
-                  <div className="product-footer">
-                    <button
-                      className="buy-button"
-                      onClick={() => addInCart(item)}
-                    >
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <p className="no-products">No products available</p>
-        )}
+        <a href="/fruit">Fruits</a>
+        <br></br>
+        <a href="/vegetable">Vegetables</a>
+        <br></br>
+        <a href="/grain">Grains</a>
       </div>
     </>
   );

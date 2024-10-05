@@ -51,8 +51,14 @@ export default function Cart() {
     );
   };
 
-  const handleRemoveItem = (id) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  const handleRemoveItem = async (item) => {
+    // setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    try {
+      const res = await axios.post(`http://localhost:8080/deleteCart`, item);
+      console.log(res);
+    } catch (err) {
+      console.log(err.message);
+    }
   };
 
   return (
@@ -76,12 +82,14 @@ export default function Cart() {
           </thead>
           <tbody>
             {cartItems.map((item) => (
-              <tr key={item.id}>
+              <tr key={item._id}>
                 <td>
-                  <i
+                  <button
                     className="fa-regular fa-circle-xmark"
-                    onClick={() => handleRemoveItem(item.id)}
-                  ></i>
+                    onClick={() => handleRemoveItem(item)}
+                  >
+                    Remove
+                  </button>
                 </td>
                 <td>
                   <img src="./img1/blog-3.jpg" alt={item.item} />

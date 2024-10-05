@@ -9,6 +9,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Index from "./Pages/index.jsx";
 import Signup from "./Pages/signup.jsx";
 import AdminSignup from "./Pages/adminSignup.jsx";
+import Fruit from "./Pages/fruit.jsx";
+import Vegetable from "./Pages/vegetable.jsx";
+import Grain from "./Pages/grain.jsx";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -24,6 +27,9 @@ function App() {
           <Route path="/addProduct" element={<AddProduct />} />
           <Route path="/showCart" element={<ShowCart />} />
           <Route path="/adminSignup" element={<AdminSignup />} />
+          <Route path="/fruit" element={<Fruit />} />
+          <Route path="/vegetable" element={<Vegetable />} />
+          <Route path="/grain" element={<Grain />} />
         </Routes>
       </BrowserRouter>
     </>
