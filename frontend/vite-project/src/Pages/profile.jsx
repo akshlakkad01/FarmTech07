@@ -3,6 +3,7 @@ import './profile.css'; // Import the CSS file
 
 const UserAccount = () => {
     return (
+        <>
         <div className="user-account-container">
             {/* Sidebar Section */}
             <div className="account-sidebar">
@@ -60,6 +61,35 @@ const UserAccount = () => {
                 </div>
             </div>
         </div>
+        <footer id="footer" className="footer">
+            <div className="col">
+                <p><strong>Address:</strong>changa,Anand</p>
+                <p><strong>Phone:</strong>+91 7984316011</p>
+                <p><strong>Hours:</strong>24/7</p>
+                <h4>Follow Us</h4>
+                <div className="follow">
+                    <i className="fa-brands fa-facebook"></i>
+                    <i className="fa-brands fa-twitter"></i>
+                    <i className="fa-brands fa-instagram"></i>
+                    <i className="fa-brands fa-pinterest"></i>
+                    <i className="fa-brands fa-youtube"></i>
+                </div>
+            </div>
+            <div className="col">
+                <a href="about">About us</a>
+                <a href="contact">Contact Us</a>
+            </div>
+            <div className="col">
+                <a href="profile">My Account</a>
+                <a href="showCart">View Cart</a>
+                <a href="contact">Help </a>
+            </div>
+            <div className="col install">
+               
+                </div>
+            
+        </footer>
+       </> 
     );
 };
 

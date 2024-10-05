@@ -67,13 +67,15 @@ export default function AddProduct() {
         </div>
         <div className="form-group">
           <label>Price:</label>
-          <input
+          <input 
             type="number"
             value={price}
             onChange={(e) => setPrice(Number(e.target.value))}
           />
         </div>
-        <button type="submit">Submit</button>
+        <div className="submit-button">
+        <button>Submit</button>
+        </div>
       </form>
     </div>
   );

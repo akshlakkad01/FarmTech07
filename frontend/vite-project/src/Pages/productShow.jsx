@@ -2,83 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import axios from "axios";
+import './productShow.css';
 
-const styles = `
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-  }
-  
-  .product-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .product-content {
-    padding: 1rem;
-  }
-  
-  .product-name {
-    font-size: 1.25rem;
-    color: #2c7a2c;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  
-  .product-category {
-    color: #2c7a2c;
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  
-  .product-price {
-    font-size: 1.125rem;
-    font-weight: bold;
-    color: #2c7a2c;
-  }
-  
-  .product-footer {
-    background-color: #f5f5f5;
-    padding: 1rem;
-  }
-  
-  .buy-button {
-    width: 100%;
-    padding: 0.5rem;
-    background-color: #40ad43;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .buy-button:hover {
-    background-color: #47994c;
-  }
-  
-  .no-products {
-    text-align: center;
-    color: #666;
-  }
-`;
 
 export default function ProductShow() {
   const [myData, setData] = useState([]);
@@ -111,18 +36,75 @@ export default function ProductShow() {
 
   return (
     <>
-      <style>{styles}</style>
-
-      <div className="container">
+      <section className="container">
         <h1>All Products</h1>
+      </section>
 
-        <a href="/fruit">Fruits</a>
-        <br></br>
-        <a href="/vegetable">Vegetables</a>
-        <br></br>
-        <a href="/grain">Grains</a>
-        <br></br>
-      </div>
+      <section id="products" className="section-p1">
+        <div className="pro-container">
+          <div className="pro-item" onClick={() => window.location.href='vegetable'}>
+            <div className="product-image vegetable"></div>
+            <div className="des">
+              <h5>Vegetables</h5>
+              <div className="star">
+                {[...Array(5)].map((_, index) => (
+                  <i key={index} className="fa-solid fa-star"></i>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="pro-item" onClick={() => window.location.href='fruit'}>
+            <div className="product-image fruit"></div>
+            <div className="des">
+              <h5>Fruits</h5>
+              <div className="star">
+                {[...Array(5)].map((_, index) => (
+                  <i key={index} className="fa-solid fa-star"></i>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="pro-item" onClick={() => window.location.href='grain'}>
+            <div className="product-image grains"></div>
+            <div className="des">
+              <h5>Grains</h5>
+              <div className="star">
+                {[...Array(5)].map((_, index) => (
+                  <i key={index} className="fa-solid fa-star"></i>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer id="footer" className="footer">
+            <div className="col">
+                <p><strong>Address:</strong>changa,Anand</p>
+                <p><strong>Phone:</strong>+91 7984316011</p>
+                <p><strong>Hours:</strong>24/7</p>
+                <h4>Follow Us</h4>
+                <div className="follow">
+                    <i className="fa-brands fa-facebook"></i>
+                    <i className="fa-brands fa-twitter"></i>
+                    <i className="fa-brands fa-instagram"></i>
+                    <i className="fa-brands fa-pinterest"></i>
+                    <i className="fa-brands fa-youtube"></i>
+                </div>
+            </div>
+            <div className="col">
+                <a href="about">About us</a>
+                <a href="contact">Contact Us</a>
+            </div>
+            <div className="col">
+                <a href="Profile">My Account</a>
+                <a href="showCart">View Cart</a>
+                <a href="contact">Help </a>
+            </div>
+            <div className="col install">
+               
+                </div>
+        </footer>
+      
     </>
   );
 }

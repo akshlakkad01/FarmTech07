@@ -116,3 +116,21 @@
       margin-top: 20px;
     }
   }
+  
+  #footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for footer */
+  }
+  
+  .col {
+    flex: 1;
+    margin: 10px 60px 10px 60px;
+  }
+  
+  .follow i {
+    margin-right: 10px;
+    cursor: pointer;
+  }

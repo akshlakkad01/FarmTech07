@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import "./productShow.css";
-import "./style.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
@@ -72,6 +71,7 @@ export default function Cart() {
         <table width="100%">
           <thead>
             <tr>
+              <td>Remove</td>
               <td>Image</td>
               <td>Product</td>
               <td>Price/Kg</td>
@@ -139,41 +139,33 @@ export default function Cart() {
         </div>
       </section>
 
-      <footer id="footer" className="section-p1">
-        <div className="col">
-          <img className="logo" src="./img1/logo.png" alt="Logo" />
-          <h4>Contact</h4>
-          <p>
-            <strong>Address:</strong> Anand, Gujarat
-          </p>
-          <p>
-            <strong>Phone:</strong> +91 1234567890
-          </p>
-          <p>
-            <strong>Hours:</strong> 24/7
-          </p>
-          <h4>Follow Us</h4>
-          <div className="follow">
-            <i className="fa-brands fa-facebook-f"></i>
-            <i className="fa-brands fa-twitter"></i>
-            <i className="fa-brands fa-instagram"></i>
-          </div>
-        </div>
-        <div className="col">
-          <h4>About</h4>
-          <a href="#">About us</a>
-          <a href="#">Delivery Information</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms & Conditions</a>
-          <a href="#">Contact Us</a>
-        </div>
-        <div className="col">
-          <h4>My Account</h4>
-          <a href="#">Sign in</a>
-          <a href="#">View Cart</a>
-          <a href="#">Help</a>
-        </div>
-      </footer>
+      <footer id="footer" className="footer">
+            <div className="col">
+                <p><strong>Address:</strong>changa,Anand</p>
+                <p><strong>Phone:</strong>+91 7984316011</p>
+                <p><strong>Hours:</strong>24/7</p>
+                <h4>Follow Us</h4>
+                <div className="follow">
+                    <i className="fa-brands fa-facebook"></i>
+                    <i className="fa-brands fa-twitter"></i>
+                    <i className="fa-brands fa-instagram"></i>
+                    <i className="fa-brands fa-pinterest"></i>
+                    <i className="fa-brands fa-youtube"></i>
+                </div>
+            </div>
+            <div className="col">
+                <a href="about">About us</a>
+                <a href="contact">Contact Us</a>
+            </div>
+            <div className="col">
+                <a href="Profile">My Account</a>
+                <a href="showCart">View Cart</a>
+                <a href="contact">Help </a>
+            </div>
+            <div className="col install">
+               
+                </div>
+        </footer>
     </>
   );
 }

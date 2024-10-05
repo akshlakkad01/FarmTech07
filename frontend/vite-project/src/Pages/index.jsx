@@ -46,23 +46,9 @@ export default function Index() {
                 <h6>24/7 Support</h6>
             </div>
         </section>
-        {/* <section id="newsletter" className="section-p1 section-m1">
-            <div className="newstext">
-              <h4>Sign Up</h4>  
-              <p>To purchase organic agri products</p>
-            </div>
-            <div className="form">
-                <input type="text" placeholder="Your email address"></input>
-                <button className="normal">Sign Up</button> 
-            </div>
-        </section> */}
 
-        <footer id="footer" className="section-p1">
-            <div className="logofooter">
-            <img className="logo" src="./Farmtech/img1/logo.png" alt=""></img>
-            </div>
+        <footer id="footer" className="footer">
             <div className="col">
-                <h4>Contact</h4>
                 <p><strong>Address:</strong>changa,Anand</p>
                 <p><strong>Phone:</strong>+91 7984316011</p>
                 <p><strong>Hours:</strong>24/7</p>
@@ -76,21 +62,17 @@ export default function Index() {
                 </div>
             </div>
             <div className="col">
-                <h4>About</h4>
-                <a href="#">About us</a>
-                <a href="#">Contact Us</a>
+                <a href="about">About us</a>
+                <a href="contact">Contact Us</a>
             </div>
             <div className="col">
-                <h4>My Account</h4>
-                <a href="#">Sign in</a>
-                <a href="#">View Cart</a>
-                <a href="#">My Wishlist</a>
-                <a href="#">Help</a>
+                <a href="Profile">My Account</a>
+                <a href="showCart">View Cart</a>
+                <a href="contact">Help </a>
             </div>
             <div className="col install">
                
                 </div>
-            
         </footer>
         
         </>
