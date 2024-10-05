@@ -6,6 +6,23 @@ export default function Fruit() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  async function addToCart(fruit) {
+    const data = {
+      item: fruit.name,
+      category: fruit.category,
+      price: fruit.price,
+    };
+
+    try {
+      const res = await axios.post("http://localhost:8080/addCart", data, {
+        withCredentials: true, // Important for sending cookies
+      });
+      console.log("Item added to cart successfully");
+    } catch (err) {
+      console.error("Error adding to cart:", err);
+    }
+  }
+
   useEffect(() => {
     axios
       .get("http://localhost:8080/showPro")
@@ -36,6 +53,12 @@ export default function Fruit() {
               <h3 className="font-bold">{fruit.name}</h3>
               <p>Category: {fruit.category}</p>
               <p>Price: {fruit.price}</p>
+              <button
+                onClick={() => addToCart(fruit)}
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
+              >
+                Add to Cart
+              </button>
             </div>
           ))}
         </div>

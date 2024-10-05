@@ -8,9 +8,9 @@ import Layout from "./Pages/layout.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Index from "./Pages/index.jsx";
 import Signup from "./Pages/signup.jsx";
-import About from './Pages/about.jsx';
-import Contact from './Pages/contact.jsx';
-import Profile from './Pages/profile.jsx';
+import About from "./Pages/about.jsx";
+import Contact from "./Pages/contact.jsx";
+import Profile from "./Pages/profile.jsx";
 import AdminSignup from "./Pages/adminSignup.jsx";
 import Fruit from "./Pages/fruit.jsx";
 import Vegetable from "./Pages/vegetable.jsx";
@@ -30,15 +30,12 @@ function App() {
           <Route path="/addProduct" element={<AddProduct />} />
           <Route path="/showCart" element={<ShowCart />} />
           <Route path="/adminSignup" element={<AdminSignup />} />
-<<<<<<< HEAD
           <Route path="/fruit" element={<Fruit />} />
           <Route path="/vegetable" element={<Vegetable />} />
           <Route path="/grain" element={<Grain />} />
-=======
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
-          <Route path="/profile" element={<Profile/>} />
->>>>>>> 7c247c761355f45a946869ff22e614ff7de4e6fd
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </>

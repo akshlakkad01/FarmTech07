@@ -115,40 +115,13 @@ export default function ProductShow() {
 
       <div className="container">
         <h1>All Products</h1>
-<<<<<<< HEAD
+
         <a href="/fruit">Fruits</a>
         <br></br>
         <a href="/vegetable">Vegetables</a>
         <br></br>
         <a href="/grain">Grains</a>
-=======
-        {myData.length > 0 ? (
-          <div className="product-grid">
-            {myData.map((item) => {
-              const { id, name, category, price } = item;
-              return (
-                <div className="product-card" key={id}>
-                  <div className="product-content">
-                    <h2 className="product-name">product:{name}</h2>
-                    <p className="product-category">Category:{category}</p>
-                    <p className="product-price">price:&#8377;{price}/kg</p>
-                  </div>
-                  <div className="product-footer">
-                    <button
-                      className="buy-button"
-                      onClick={() => addInCart(item)}
-                    >
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <p className="no-products">No products available</p>
-        )}
->>>>>>> 7c247c761355f45a946869ff22e614ff7de4e6fd
+        <br></br>
       </div>
     </>
   );

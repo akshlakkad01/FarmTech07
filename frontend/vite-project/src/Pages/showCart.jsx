@@ -77,14 +77,12 @@ export default function Cart() {
               <td>Price/Kg</td>
               <td>Quantity(Kg)</td>
               <td>Subtotal</td>
-              
             </tr>
           </thead>
           <tbody>
             {cartItems.map((item) => (
               <tr key={item._id}>
                 <td>
-<<<<<<< HEAD
                   <button
                     className="fa-regular fa-circle-xmark"
                     onClick={() => handleRemoveItem(item)}
@@ -95,16 +93,6 @@ export default function Cart() {
                 <td>
                   <img src="./img1/blog-3.jpg" alt={item.item} />
                 </td>
-=======
-                  <img src="./img1/blog-3.jpg" alt={item.item} />
-                </td>
-                {/* <td>
-                  <i
-                    className="fa-regular fa-circle-xmark"
-                    onClick={() => handleRemoveItem(item.id)}
-                  ></i>
-                </td> */}
->>>>>>> 7c247c761355f45a946869ff22e614ff7de4e6fd
                 <td>{item.item}</td>
                 <td>&#8377;{item.price}</td>
                 <td>
