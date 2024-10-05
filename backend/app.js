@@ -137,9 +137,9 @@ app.post("/login", async (req, res) => {
 app.post("/addCart", async (req, res) => {
   const data = {
     // id: req.body.cart_id,
-    item: req.body.cart_name,
-    category: req.body.cart_category,
-    price: req.body.cart_price,
+    item: req.body.item,
+    category: req.body.category,
+    price: req.body.price,
   };
   await Cart.insertMany(data);
   const token = req.cookies.loginCookie;
