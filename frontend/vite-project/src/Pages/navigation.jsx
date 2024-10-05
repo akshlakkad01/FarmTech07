@@ -1,24 +1,45 @@
-// import { Link,Outlet } from "react-router-dom"
-import "./style.css"
+import React, { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import "./navigation.css";
+
 export default function Navigation() {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    function goToProfile() {
+        navigate("/profile");
+    }
+
+    function toggleMobileMenu() {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    }
+
     return (
-        <section id="header">
-            <a href="/"><img src="./Farmtech/img1/logo.png" className="logo" alt=""></img></a>
-        <div>
-            <ul id="navbar">
-                <li><a className="active" href="/">Home</a></li>
-                <li><a href="/showProduct">Shop</a></li>
-                <li><a href="/addProduct">Add Product</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="/showCart"> <i className="bi bi-bag-fill"></i></a></li>
-                <a href="#"id="close"><i className="fa-solid fa-xmark"></i></a>
-            </ul>
-         </div>
-         <div id="mobile">
-            <a href="#"><i className="fa fa-bag-shopping"></i></a>
-            <i id="bar" className="fa-solid fa-bars"></i>
-         </div>
-        </section>
-    )
+        <header className="header">
+            <h2 className="logo">FarmTech</h2>
+            <nav className={`navbar ${isMobileMenuOpen ? 'active' : ''}`}>
+                <ul>
+                    <li><Link to="/" className={location.pathname === "/" ? "active" : ""}>Home</Link></li>
+                    <li><Link to="/showProduct" className={location.pathname === "/showProduct" ? "active" : ""}>Shop</Link></li>
+                    <li><Link to="/addProduct" className={location.pathname === "/addProduct" ? "active" : ""}>Add Product</Link></li>
+                    <li><Link to="/about" className={location.pathname === "/about" ? "active" : ""}>About</Link></li>
+                    <li><Link to="/contact" className={location.pathname === "/contact" ? "active" : ""}>Contact</Link></li>
+                    <li>
+                        <Link to="/showCart" className={location.pathname === "/showCart" ? "active" : ""}>
+                            <img src="/img1/shopping-cart.png" alt="Cart" className="icon cart-icon" />
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/profile" onClick={goToProfile} className={location.pathname === "/profile" ? "active" : ""}>
+                            <img src="/img1/user.png" alt="Profile" className="icon profile-icon" />
+                        </Link>
+                    </li>
+                </ul>
+            </nav>
+            <button className="menu-toggle" onClick={toggleMobileMenu}>
+                <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+            </button>
+        </header>
+    );
 }

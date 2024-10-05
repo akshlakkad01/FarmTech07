@@ -19,8 +19,12 @@
     "ejs-mate": "^4.0.0",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
+<<<<<<< HEAD
     "mongoose": "^8.4.4",
     "multer": "^1.4.5-lts.1",
+=======
+    "mongoose": "^8.7.0",
+>>>>>>> 7c247c761355f45a946869ff22e614ff7de4e6fd
     "nodemon": "^3.1.4"
   }
 }

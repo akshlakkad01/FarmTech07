@@ -24,7 +24,7 @@ export default function Login() {
         .post("http://localhost:8080/login", data)
         .then((res) => {
           console.log("done");
-          navigate("/");
+          navigate("/productShow");
         })
         .catch((err) => console.log("internal server error"));
     }
@@ -58,6 +58,7 @@ export default function Login() {
             className="username"
             id="username"
             value={username}
+            placeholder="Enter your username"
             onChange={(e) => setUsername(e.target.value)}
             required
           ></input>
@@ -69,6 +70,7 @@ export default function Login() {
             className="email"
             id="email"
             value={email}
+            placeholder="Enter your email"
             onChange={(e) => setEmail(e.target.value)}
             required
           ></input>
@@ -79,6 +81,7 @@ export default function Login() {
             type="password"
             id="password"
             value={password}
+            placeholder="Enter your password"
             onChange={(e) => setPass(e.target.value)}
             required
           ></input>

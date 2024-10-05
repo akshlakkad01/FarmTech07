@@ -48,7 +48,7 @@ export default function AdminSignup() {
   }
   return (
     <div className="signup-container">
-      <h1>Sign Up</h1>
+      <h1>Admin Login</h1>
       <form id="signupForm">
         <div className="input-group">
           <label htmlFor="username">Username</label>
@@ -57,6 +57,7 @@ export default function AdminSignup() {
             className="username"
             id="username"
             value={username}
+            placeholder="Enter your username"
             onChange={(e) => setUsername(e.target.value)}
             required
           ></input>
@@ -68,6 +69,7 @@ export default function AdminSignup() {
             className="email"
             id="email"
             value={email}
+            placeholder="Enter your email"
             onChange={(e) => setEmail(e.target.value)}
             required
           ></input>
@@ -77,7 +79,8 @@ export default function AdminSignup() {
           <input
             type="password"
             id="password"
-            value={password}
+            value={password}  
+            placeholder="Enter your password"
             onChange={(e) => setPass(e.target.value)}
             required
           ></input>
@@ -87,7 +90,7 @@ export default function AdminSignup() {
           Show Password
         </div>
         <button type="submit" className="signupButton" onClick={getData}>
-          Signup
+          Login
         </button>
       </form>
       <div className="links">

@@ -72,18 +72,19 @@ export default function Cart() {
         <table width="100%">
           <thead>
             <tr>
-              <td>Remove</td>
               <td>Image</td>
               <td>Product</td>
               <td>Price/Kg</td>
               <td>Quantity(Kg)</td>
               <td>Subtotal</td>
+              
             </tr>
           </thead>
           <tbody>
             {cartItems.map((item) => (
               <tr key={item._id}>
                 <td>
+<<<<<<< HEAD
                   <button
                     className="fa-regular fa-circle-xmark"
                     onClick={() => handleRemoveItem(item)}
@@ -94,8 +95,18 @@ export default function Cart() {
                 <td>
                   <img src="./img1/blog-3.jpg" alt={item.item} />
                 </td>
+=======
+                  <img src="./img1/blog-3.jpg" alt={item.item} />
+                </td>
+                {/* <td>
+                  <i
+                    className="fa-regular fa-circle-xmark"
+                    onClick={() => handleRemoveItem(item.id)}
+                  ></i>
+                </td> */}
+>>>>>>> 7c247c761355f45a946869ff22e614ff7de4e6fd
                 <td>{item.item}</td>
-                <td>${item.price}</td>
+                <td>&#8377;{item.price}</td>
                 <td>
                   <input
                     type="number"
@@ -106,7 +117,7 @@ export default function Cart() {
                     }
                   />
                 </td>
-                <td>${(item.price * item.quantity).toFixed(2)}</td>
+                <td>&#8377;{(item.price * item.quantity).toFixed(2)}</td>
               </tr>
             ))}
           </tbody>
@@ -120,7 +131,7 @@ export default function Cart() {
             <tbody>
               <tr>
                 <td>Cart Subtotal</td>
-                <td>${total.toFixed(2)}</td>
+                <td>&#8377;{total.toFixed(2)}</td>
               </tr>
               <tr>
                 <td>Shipping</td>
@@ -131,7 +142,7 @@ export default function Cart() {
                   <strong>Total</strong>
                 </td>
                 <td>
-                  <strong>${total.toFixed(2)}</strong>
+                  <strong>&#8377;{total.toFixed(2)}</strong>
                 </td>
               </tr>
             </tbody>
