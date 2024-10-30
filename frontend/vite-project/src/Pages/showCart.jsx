@@ -163,8 +163,7 @@ export default function Cart() {
                 <a href="contact">Help </a>
             </div>
             <div className="col install">
-               
-                </div>
+            </div>
         </footer>
     </>
   );

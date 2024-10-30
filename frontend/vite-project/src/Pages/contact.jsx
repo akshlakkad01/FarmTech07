@@ -5,24 +5,6 @@ import './contact.css';
 const Contact = () => {
   return (
     <>
-      {/* <section id="header">
-        <Link to="/"><img src="./img1/logo.png" className="logo" alt="" /></Link>
-        <div>
-          <ul id="navbar">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/shop">Shop</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/contact" className="active">Contact</Link></li>
-            <li><Link to="/cart"><i id="lg-bag" className="fa fa-bag-shopping"></i></Link></li>
-            <Link to="#" id="close"><i className="fa-solid fa-xmark"></i></Link>
-          </ul>
-        </div>
-        <div id="mobile">
-          <Link to="/cart"><i className="fa fa-bag-shopping"></i></Link>
-          <i id="bar" className="fa-solid fa-bars"></i>
-        </div>
-      </section> */}
-
       <section id="page-header" className="about-header">
         <h1>#let's_talk</h1>
         <p>LEAVE A MESSAGE, We love to hear from you!</p>
