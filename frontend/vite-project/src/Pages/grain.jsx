@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Button } from "bootstrap/dist/js/bootstrap.bundle.min";
+import "./grain.css";
 
 export default function Grain() {
   const [myData, setMyData] = useState([]);

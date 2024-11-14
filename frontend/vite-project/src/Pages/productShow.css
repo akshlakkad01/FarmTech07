@@ -1,6 +1,6 @@
+/* frontend/vite-project/src/Pages/productShow.css */
+
 /* productShow.css */
-
-
 
 body {
   font-family: 'Arial', sans-serif;
@@ -40,7 +40,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.container h1{
+.container h1 {
   color: white;
 }
 
@@ -54,19 +54,19 @@ body {
 
 .pro-item {
   background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px; /* Changed to a smaller radius for a more modern look */
+  border: 1px solid #e0e0e0; /* Light gray border for box effect */
+  border-radius: 10px; /* Rounded corners for a modern look */
   overflow: hidden;
   margin: 15px; /* Increased margin for better spacing between items */
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.2s; /* Added box-shadow transition */
-  width: calc(25% - 20px);
-  align-items: center; /* Adjust width for 4 items per row */
+  width: calc(25% - 20px); /* Adjust width for 4 items per row */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .pro-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Added shadow on hover for depth */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 .product-image {
@@ -85,7 +85,7 @@ body {
 }
 
 .product-image.grains {
-  background-image: url('./img1/grains.jpg'); /* Grains image */
+  background-image: url('./img1/grains.jpg'); /* Grains image */
 }
 
 .des {

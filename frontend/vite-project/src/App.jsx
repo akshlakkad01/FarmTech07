@@ -10,7 +10,7 @@ import Index from "./Pages/index.jsx";
 import Signup from "./Pages/signup.jsx";
 import About from "./Pages/about.jsx";
 import Contact from "./Pages/contact.jsx";
-import Profile from "./Pages/profile.jsx";
+// import Profile from "./Pages/profile.jsx";
 import AdminSignup from "./Pages/adminSignup.jsx";
 import Fruit from "./Pages/fruit.jsx";
 import Vegetable from "./Pages/vegetable.jsx";
@@ -35,7 +35,7 @@ function App() {
           <Route path="/grain" element={<Grain />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
-          <Route path="/profile" element={<Profile />} />
+          {/* <Route path="/profile" element={<Profile />} /> */}
         </Routes>
       </BrowserRouter>
     </>

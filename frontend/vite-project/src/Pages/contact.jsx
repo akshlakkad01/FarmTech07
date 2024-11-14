@@ -49,8 +49,8 @@ const Contact = () => {
 
       <section id="form-details">
         <form action="">
-          <span>LEAVE A MESSAGE</span>
-          <h2>We love to hear from you</h2>
+          <span><h2>Massage for sell your product on our platform</h2></span>
+          <h5>We love to hear from you</h5>
           <input type="text" placeholder="Your Name" />
           <input type="text" placeholder="E-mail" />
           <input type="text" placeholder="Subject" />
@@ -59,7 +59,7 @@ const Contact = () => {
         </form>
         <div className="people">
           <div>
-            <img src="./img/people/1.png" alt="" />
+            {/* <img src="./img/people/1.png" alt="" /> */}
             <p>
               <span>Krish Kadchhi</span> Senior Marketing Manager <br />
               Phone: +91 9909987990 <br />
@@ -67,7 +67,7 @@ const Contact = () => {
             </p>
           </div>
           <div>
-            <img src="./img1/Profile.jpg" alt="" />
+            {/* <img src="./img1/Profile.jpg" alt="" /> */}
             <p>
               <span>Akshay Lakkad</span> Senior Marketing Manager <br />
               Phone: +91 9809897096 <br />
@@ -75,7 +75,7 @@ const Contact = () => {
             </p>
           </div>
           <div>
-            <img src="./img1/user.jpg" alt="" />
+            {/* <img src="./img1/user.jpg" alt="" /> */}
             <p>
               <span>Nirmal Kaneriya</span> Senior Marketing Manager <br />
               Phone: +91 9709795097 <br />
@@ -95,11 +95,11 @@ const Contact = () => {
       </section> */}
 
 <footer id="footer" className="section-p1">
-            <div className="logofooter">
+            {/* <div className="logofooter">
             <img className="logo" src="./Farmtech/img1/logo.png" alt=""></img>
-            </div>
+            </div> */}
             <div className="col">
-                <h4>Contact</h4>
+                {/* <h4>Contact</h4> */}
                 <p><strong>Address:</strong>changa,Anand</p>
                 <p><strong>Phone:</strong>+91 7984316011</p>
                 <p><strong>Hours:</strong>24/7</p>
@@ -113,12 +113,12 @@ const Contact = () => {
                 </div>
             </div>
             <div className="col">
-                <h4>About</h4>
+                {/* <h4>About</h4> */}
                 <a href="#">About us</a>
                 <a href="#">Contact Us</a>
             </div>
             <div className="col">
-                <h4>My Account</h4>
+                {/* <h4>My Account</h4> */}
                 <a href="#">Sign in</a>
                 <a href="#">View Cart</a>
                 <a href="#">My Wishlist</a>

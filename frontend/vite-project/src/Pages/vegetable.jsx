@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "./vegetable.css";
 
 export default function Vegetable() {
   const [myData, setMyData] = useState([]);

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "./fruit.css";
 
 export default function Fruit() {
   const [myData, setMyData] = useState([]);

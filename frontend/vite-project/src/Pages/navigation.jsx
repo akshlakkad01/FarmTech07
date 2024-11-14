@@ -30,11 +30,11 @@ export default function Navigation() {
                             <img src="/img1/shopping-cart.png" alt="Cart" className="icon cart-icon" />
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to="/profile" onClick={goToProfile} className={location.pathname === "/profile" ? "active" : ""}>
                             <img src="/img1/user.png" alt="Profile" className="icon profile-icon" />
                         </Link>
-                    </li>
+                    </li> */}
                 </ul>
             </nav>
             <button className="menu-toggle" onClick={toggleMobileMenu}>
